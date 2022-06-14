@@ -3,6 +3,13 @@ import React from 'react'
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    // state you should have
+    // todos
+    // singleTodo
+    // loading
+    // loadingMessage = 'app is loading...' -> pass as props to loading component.
+    
     this.state = {
       todos: null,
       singleTodo: null,
@@ -10,13 +17,7 @@ class App extends React.Component {
       loadingMessage: 'app is loading...',
     }
   }
-  // state you should have
-    // todos
-    // singleTodo
-    // loading
-    // loadingMessage = 'app is loading...' -> pass as props to loading component.
-
-  
+   
   // Components
     // 1. Todos
     // 2. TodoItem
