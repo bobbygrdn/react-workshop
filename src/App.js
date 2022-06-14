@@ -30,6 +30,12 @@ class App extends React.Component {
     // Back buttons should make single todo state null. 
 
 
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos/')
+      .then(response => response.json())
+      .then(data => this.setState({todos: data}))
+      .catch(err => console.error(err));
+  }
   // 1. Use componentDidMount to make an api call to https://jsonplaceholder.typicode.com/todos/
   // 2. The app should show all todos in a list.
   // 3. Show a loading component while making api calls
@@ -47,7 +53,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Initial app component</h1>  
+        <h1>To-Do List</h1>  
+          <Todos todos={todos}/>
       </div>
     );
   }
