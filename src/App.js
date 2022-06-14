@@ -56,7 +56,7 @@ class App extends React.Component {
   render() {
 
     const Click = () => {
-      this.setState = {singleTodo: null}
+      this.setState ({singleTodo: null})
     }
 
     const setSingleTodo = (e) => {
@@ -76,7 +76,7 @@ class App extends React.Component {
       return (
         <div>
         <SingleTodo singleTodo={this.state.singleTodo} />
-        <Button Click={Click}/>
+        <Button Click={Click} />
         </div>
       )
     } else {
