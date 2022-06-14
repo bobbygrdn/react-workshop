@@ -1,7 +1,15 @@
 import React from 'react'
 
 class App extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: null,
+      singleTodo: null,
+      loading: true,
+      loadingMessage: 'app is loading...',
+    }
+  }
   // state you should have
     // todos
     // singleTodo
