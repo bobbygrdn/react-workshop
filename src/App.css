@@ -18,16 +18,4 @@
   color: white;
 }
 
-.loading {
-  color: blue
-}
 
-.todoItem {
-  border: #282c34;
-  border-radius: 5px;
-  font-size: calc(10px + 2vmin);
-}
-
-.singleTodo {
-  font-size: calc(10px + 2vmin);
-}
