@@ -5,10 +5,11 @@ class SingleTodo extends React.Component {
 
         return(
             <div>
+            <h1 className="title">To-do Item</h1>
             <h1
             className="todoItem" 
-            id={this.props.id} 
-            >{this.props.title}</h1>
+            id={this.props.singleTodo.id} 
+            >{this.props.singleTodo.title}</h1>
             </div>
         )
         
