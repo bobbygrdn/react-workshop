@@ -7,7 +7,7 @@ class SingleTodo extends React.Component {
             <div>
             <h1 className="title">To-do Item</h1>
             <h1
-            className="todoItem" 
+            className="singleTodo" 
             id={this.props.singleTodo.id} 
             >{this.props.singleTodo.title}</h1>
             </div>
