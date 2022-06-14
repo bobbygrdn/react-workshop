@@ -1,4 +1,8 @@
-import React from 'react'
+import React from 'react';
+import Todos from './components/Todos';
+import Loading from './components/Loading'
+import SingleTodo from './components/SingleTodo'
+import Button from './components/Button'
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +18,7 @@ class App extends React.Component {
       todos: null,
       singleTodo: null,
       loading: true,
-      loadingMessage: 'app is loading...',
+      loadingMessage: 'App is loading...',
     }
   }
    
@@ -33,8 +37,7 @@ class App extends React.Component {
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/todos/')
       .then(response => response.json())
-      .then(data => this.setState({todos: data}))
-      .catch(err => console.error(err));
+      .then(data => this.setState({todos: data, loading: false}))
   }
   // 1. Use componentDidMount to make an api call to https://jsonplaceholder.typicode.com/todos/
   // 2. The app should show all todos in a list.
@@ -51,12 +54,39 @@ class App extends React.Component {
   // Conditionaly render Todos -> TodoItem or singleTodo
 
   render() {
-    return (
-      <div className="App">
-        <h1>To-Do List</h1>  
-          <Todos todos={todos}/>
-      </div>
-    );
+
+    const Click = () => {
+      this.setState = {singleTodo: null}
+    }
+
+    const setSingleTodo = (e) => {
+      fetch(`https://jsonplaceholder.typicode.com/todos/${e.target.id}`)
+      .then(response => response.json())
+      .then(data => this.setState({singleTodo: data}))
+    }
+
+    if(this.state.loading === true) {
+      return (
+        <div className="loading" >
+          <Loading loadingMessage={this.state.loadingMessage}/>
+        </div>
+      )
+    }
+    if(this.state.singleTodo !== null){
+      return (
+        <div>
+        <SingleTodo singleTodo={this.state.singleTodo} />
+        <Button Click={Click}/>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+        <h1 className="title">To-do List</h1>
+        <Todos todos={this.state.todos} setSingleTodo={setSingleTodo}/>
+        </div>
+      )
+    }
   }
 }
 
