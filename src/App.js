@@ -55,7 +55,7 @@ class App extends React.Component {
 
   render() {
 
-    const Click = () => {
+    const click = () => {
       this.setState ({singleTodo: null})
     }
 
@@ -78,7 +78,7 @@ class App extends React.Component {
   
       <div>
       <SingleTodo singleTodo={this.state.singleTodo} />
-      <Button Click={Click} />
+      <Button click={click} />
       </div>
   
     :

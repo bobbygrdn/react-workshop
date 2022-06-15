@@ -5,7 +5,7 @@ class Button extends React.Component {
     render() {
 
         const handleClick = () => {
-            this.props.Click()
+            this.props.click()
         }
 
         return (
