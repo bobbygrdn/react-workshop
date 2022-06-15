@@ -72,21 +72,23 @@ class App extends React.Component {
         </div>
       )
     }
-    if(this.state.singleTodo !== null){
-      return (
-        <div>
-        <SingleTodo singleTodo={this.state.singleTodo} />
-        <Button Click={Click} />
-        </div>
-      )
-    } else {
-      return (
-        <div>
-        <h1 className="title">To-do List</h1>
-        <Todos todos={this.state.todos} setSingleTodo={setSingleTodo}/>
-        </div>
-      )
-    }
+
+    // Ternary operator method which checks the value of singleTodo state and renders the singleTodo component if true
+    return (this.state.singleTodo ? 
+  
+      <div>
+      <SingleTodo singleTodo={this.state.singleTodo} />
+      <Button Click={Click} />
+      </div>
+  
+    :
+  
+      <div>
+      <h1 className="title">To-do List</h1>
+      <Todos todos={this.state.todos} setSingleTodo={setSingleTodo}/>
+      </div>
+    );
+
   }
 }
 
