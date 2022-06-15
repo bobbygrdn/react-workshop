@@ -22,8 +22,9 @@ body {
 }
 
 .todoItem:hover {
-  color: black;
-  background: white;
+  border-color: black;
+  /* color: black;
+  background: white; */
 }
 
 .title {
